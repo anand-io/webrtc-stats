@@ -1,5 +1,5 @@
 ### Installation
-  npm install webrtc-stats
+  `npm install webrtc-stats`
   
 ### Usage
 
