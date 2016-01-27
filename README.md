@@ -1,5 +1,6 @@
 ### Installation
-
+  npm install webrtc-stats
+  
 ### Usage
 
 #### To get bandwidth details:
