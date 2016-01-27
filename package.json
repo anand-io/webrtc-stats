@@ -2,6 +2,13 @@
   "name": "webrtc-stats",
   "version": "0.0.1",
   "description": "A wrapper for WebRTC getStats for Chrome, Firefox and Opera",
+  "keywords": ["webrtc", "getStats", "stats", "peerConnection"],
+  "author": "Anand S",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anand-io/webrtc-stats.git"
+  },
   "dependencies": {},
   "devDependencies": {
     "browserify": "^13.0.0",
