@@ -1,6 +1,10 @@
 {
   "name": "webrtc-stats",
   "version": "0.0.1",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "gulp"
+  },
   "description": "A wrapper for WebRTC getStats for Chrome, Firefox and Opera",
   "keywords": ["webrtc", "getStats", "stats", "peerConnection"],
   "author": "Anand S",
