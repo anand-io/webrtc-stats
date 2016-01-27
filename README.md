@@ -10,10 +10,11 @@
       console.log(bandwidth);
   });
 ```
-```timeInterval``` (in milliseconds and optional) is the time inverval at which you need get bandwidth information.
-```timeInterval``` must be greater than 1000 milliseconds.
 
-To stop capturing bandwidth information ```bandwidthEvent.stop()```
+`timeInterval` (in milliseconds and optional) is the time inverval at which you need get bandwidth information.
+`timeInterval` must be greater than 1000 milliseconds.
+
+To stop capturing bandwidth information `bandwidthEvent.stop()`
 
 #### To get Connection detail.
 
