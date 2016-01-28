@@ -3,7 +3,7 @@ function Bandwidth(pc, timeInterval) {
     this.pc = pc;
     this.timeInterval = timeInterval;
     this.listeners = {};
-    this.start();
+    this.started = false;
 }
 
 Bandwidth.prototype.on = function (event, fn) {
@@ -26,7 +26,12 @@ Bandwidth.prototype.emit = function () {
 
 Bandwidth.prototype.start = function () {
     var _self = this;
+    if(_self.started)
+        return;
+    _self.started = true;
     _self.intervalEvent = setInterval(function () {
+        if(_self.pc.iceConnectionState !== 'completed' && _self.pc.iceConnectionState !== "connected")
+            return clearInterval(_self.intervalEvent);
         _self.pc.getStats(null)
         .then(function(result) {
             var totalbytesReceived = 0;
@@ -61,6 +66,7 @@ Bandwidth.prototype.start = function () {
 };
 
 Bandwidth.prototype.stop = function() {
+    this.started = false;
     clearInterval(this.intervalEvent);
 };
 
@@ -78,6 +84,8 @@ WebRTCUtils.prototype.getBandwidth = function(pc, timeInterval) {
 
 WebRTCUtils.prototype.getConnectionDetails = function (pc) {
     return new Promise(function(resolve, reject) {
+        if(pc.iceConnectionState !== 'completed' && pc.iceConnectionState !== "connected")
+            return reject("not connected yet");
         pc.getStats(null)
         .then(function(stats) {
             var connectionDetails = {};
